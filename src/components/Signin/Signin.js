@@ -14,7 +14,7 @@ class Signin extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    fetch("http://localhost:3001/signin", {
+    fetch("https://damp-fortress-28549.herokuapp.com/signin", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

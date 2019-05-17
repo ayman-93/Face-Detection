@@ -10,7 +10,7 @@ import FaceRecognition from "./components/FaceRecognition/FaceRecognition";
 import Signin from "./components/Signin/Signin";
 import Register from "./components/Register/Register";
 const particlesOptions = particles;
-
+const URL = "https://damp-fortress-28549.herokuapp.com";
 class App extends React.Component {
   state = {
     input: "",
@@ -54,7 +54,7 @@ class App extends React.Component {
   };
 
   onSubmit = () => {
-    fetch("http://localhost:3001/imageurl", {
+    fetch(`${URL}/imageurl`, {
       method: "put",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -66,7 +66,7 @@ class App extends React.Component {
         this.calculateFaceLocation(faces.outputs["0"].data.regions)
       )
       .then(() => {
-        fetch("http://localhost:3001/image", {
+        fetch(`${URL}/image`, {
           method: "put",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
